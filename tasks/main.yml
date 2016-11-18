@@ -12,3 +12,11 @@
   tags:
     - manala_grafana
     - manala.services
+
+- include: datasources.yml
+  tags:
+    - manala_grafana
+
+- include: dashboards.yml
+  tags:
+    - manala_grafana
