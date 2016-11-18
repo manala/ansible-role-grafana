@@ -61,6 +61,7 @@ manala_grafana_config:
     - admin_user: admin
     - admin_password: admin
 
+manala_grafana_api_url: http://127.0.0.1:3000
 manala_grafana_api_user: admin
 manala_grafana_api_password: admin
 
