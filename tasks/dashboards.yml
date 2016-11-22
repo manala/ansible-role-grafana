@@ -7,7 +7,7 @@
   uri:
     url:                  "{{ manala_grafana_api_url }}/api/search"
     method:               GET
-    HEADER_Content-Type:  "application/json"
+    HEADER_Content-Type:  application/json
     force_basic_auth:     true
     user:                 "{{ manala_grafana_api_user }}"
     password:             "{{ manala_grafana_api_password }}"
@@ -21,7 +21,7 @@
   uri:
     url:                  "{{ manala_grafana_api_url }}/api/dashboards/{{ item.uri }}"
     method:               DELETE
-    HEADER_Content-Type:  "application/json"
+    HEADER_Content-Type:  application/json
     force_basic_auth:     true
     user:                 "{{ manala_grafana_api_user }}"
     password:             "{{ manala_grafana_api_password }}"
@@ -36,7 +36,7 @@
   uri:
     url:                  "{{ manala_grafana_api_url }}/api/dashboards/import"
     method:               POST
-    HEADER_Content-Type:  "application/json"
+    HEADER_Content-Type:  application/json
     body:                 "{{ { 'dashboard': lookup('file', item.template)|from_json, 'overwrite': item.overwrite|default(true), 'inputs': item.inputs|default([]) }|to_json }}"
     force_basic_auth:     true
     user:                 "{{ manala_grafana_api_user }}"
