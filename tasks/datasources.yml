@@ -17,7 +17,7 @@
   uri:
     url:                  "{{ manala_grafana_api_url }}/api/datasources/{{ item[0].id }}"
     method:               PUT
-    HEADER_Content-Type:  "application/json"
+    HEADER_Content-Type:  application/json
     body:                 "{{ item[1]|to_json }}"
     force_basic_auth:     true
     user:                 "{{ manala_grafana_api_user }}"
@@ -35,7 +35,7 @@
   uri:
     url:                  "{{ manala_grafana_api_url }}/api/datasources"
     method:               POST
-    HEADER_Content-Type:  "application/json"
+    HEADER_Content-Type:  application/json
     body:                 '{{ item|to_json }}'
     force_basic_auth:     true
     user:                 "{{ manala_grafana_api_user }}"
@@ -51,7 +51,7 @@
   uri:
     url:                  "{{ manala_grafana_api_url }}/api/datasources/{{ item.id }}"
     method:               DELETE
-    HEADER_Content-Type:  "application/json"
+    HEADER_Content-Type:  application/json
     force_basic_auth:     true
     user:                 "{{ manala_grafana_api_user }}"
     password:             "{{ manala_grafana_api_password }}"
