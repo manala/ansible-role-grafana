@@ -24,7 +24,7 @@
     password:             "{{ manala_grafana_api_password }}"
     status_code:          200
   with_nested:
-    - "{{ _manala_grafana_datasources_output.json }}"
+    - "{{ _manala_grafana_datasources_output.json|default([]) }}"
     - "{{ manala_grafana_datasources }}"
   when: item[0].name == item[1].name
 
@@ -56,5 +56,5 @@
     user:                 "{{ manala_grafana_api_user }}"
     password:             "{{ manala_grafana_api_password }}"
     status_code:          200
-  with_items: "{{ _manala_grafana_datasources_output.json }}"
+  with_items: "{{ _manala_grafana_datasources_output.json|default([]) }}"
   when: manala_grafana_datasources_exclusive and item.name not in manala_grafana_datasources|map(attribute='name')|list
