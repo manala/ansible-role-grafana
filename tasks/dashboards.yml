@@ -3,7 +3,6 @@
 # Import dashboards
 - name: dashboards > List dashboards
   register: _manala_grafana_dashboards_list_output
-  failed_when: "'OK' not in _manala_grafana_dashboards_list_output|to_json"
   uri:
     url:                  "{{ manala_grafana_api_url }}/api/search"
     method:               GET
@@ -17,7 +16,7 @@
 # Delete dashboards
 - name: dashboards > Delete dashboards
   register: _manala_grafana_dashboards_delete_output
-  failed_when: "'OK' not in _manala_grafana_dashboards_delete_output|to_json"
+  failed_when: "'Dashboard not found' in _manala_grafana_dashboards_delete_output|to_json"
   uri:
     url:                  "{{ manala_grafana_api_url }}/api/dashboards/{{ item.uri }}"
     method:               DELETE
@@ -32,7 +31,6 @@
 # Import dashboards
 - name: dashboards > Import dashboards
   register: _manala_grafana_dashboards_import_output
-  failed_when: "'OK' not in _manala_grafana_dashboards_import_output|to_json"
   uri:
     url:                  "{{ manala_grafana_api_url }}/api/dashboards/import"
     method:               POST
